@@ -1,0 +1,25 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.background {
+    background-image: url("../images/Backgrounds-037.jpg");
+    background-color: rgb(211, 211, 211);
+    min-height: 100vh;
+    padding-left: 10px;
+  }
+
+  .App-header {
+    background-image: url("../images/Backgrounds-037.jpg");
+    background-color: rgb(211, 211, 211);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
