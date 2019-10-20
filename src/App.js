@@ -9,7 +9,6 @@ import Education from './components/Education'
 import Project from './components/Project'
 import Reference from './components/Reference'
 import KnowledgeCatalog from './components/KnowledgeCatalog'
-// import ErrorTesting from './ErrorTesting'
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
           <Project path="/projects" />
           <Reference path="/references" />
           <KnowledgeCatalog path="/catalog" />
-          {/* <ErrorTesting path="/error" /> */}
         </Router>
     </div>
   );

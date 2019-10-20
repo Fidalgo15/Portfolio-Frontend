@@ -34,10 +34,6 @@ export default class extends React.Component {
           <NavItem>
             <NavLink href="/catalog">Knowledge Catalog</NavLink>
           </NavItem>
-
-          {/* <NavItem>
-            <NavLink href="/error">Error Testing</NavLink>
-          </NavItem> */}
         </Nav>
         </>
     )

@@ -29,19 +29,24 @@ class WorkExperience extends React.Component {
             return(
              <div key={work.id}>
                  <ul>
+                     <label>Company</label>
                     <li>{work.company}</li>
+                    <label>Job Title</label>
                     <li>{work.title}</li>
+                    <label>Job Description</label>
                     <li>{work.description}</li>
+                    <label>Start Date</label>
                     <li>{work.start_date}</li>
+                    <label>End Date</label>
                     <li>{work.end_date}</li>
                  </ul>
-              
              </div>
             )
            })
 
         return (
             <div className="background">
+                <h1>Work Experiences</h1>
                 {works}
             </div>
         )
