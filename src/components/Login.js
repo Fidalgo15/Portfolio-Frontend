@@ -9,7 +9,7 @@ export default class extends React.Component {
             login: "",
             password: ""
         }
-    }
+    };
 
 
     render() {

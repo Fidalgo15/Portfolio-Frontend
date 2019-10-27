@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
+import CreateCatalog from './Post/createCatalog'
 
 class KnowledgeCatalog extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class KnowledgeCatalog extends React.Component {
         this.state = {
             catalogs: []
         }
-    }
+    };
 
     componentDidMount() {
         let url = buildUrl("catalog")
@@ -20,13 +21,13 @@ class KnowledgeCatalog extends React.Component {
                             catalogs: data
                         })
                 })
-            })
+            });
     };
 
     render() {
         let catalogs = this.state.catalogs.map(catalog => {
             return(
-             <div key={catalog.id}>
+             <div key={catalog._id}>
                  <ul>
                      <label>Name</label>
                     <li>{catalog.name}</li>
@@ -36,12 +37,13 @@ class KnowledgeCatalog extends React.Component {
                     <li>{catalog.tag}</li>
                  </ul>
              </div>
-            )
-           })
+            );
+           });
         return (
             <div className="background">
                 <h1>KnowledgeCatalog</h1>
                 {catalogs}
+                <CreateCatalog />
             </div>
         )
     }

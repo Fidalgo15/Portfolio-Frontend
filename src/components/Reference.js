@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
+import CreateReference from './Post/createReference'
 
 class Reference extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Reference extends React.Component {
         this.state = {
             references: []
         }
-    }
+    };
 
     componentDidMount() {
         let url = buildUrl("references")
@@ -20,13 +21,13 @@ class Reference extends React.Component {
                             references: data
                         })
                 })
-            })
+            });
     };
 
     render() {
         let references = this.state.references.map(reference => {
             return(
-             <div key={reference.id}>
+             <div key={reference._id}>
                  <ul>
                      <label>Name</label>
                     <li>{reference.name}</li>
@@ -36,12 +37,13 @@ class Reference extends React.Component {
                     <li>{reference.relation}</li>
                  </ul>
              </div>
-            )
-           })
+            );
+           });
         return (
             <div className="background">
                 <h1>References</h1>
                 {references}
+                <CreateReference />
             </div>
         )
     }

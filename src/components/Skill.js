@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
+import CreateSkill from './Post/createSkill'
 
 class Skill extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Skill extends React.Component {
         this.state = {
             skills: []
         }
-    }
+    };
 
     componentDidMount() {
         let url = buildUrl("skills")
@@ -20,13 +21,13 @@ class Skill extends React.Component {
                             skills: data
                         })
                 })
-            })
+            });
     };
 
     render() {
         let skills = this.state.skills.map(skill => {
             return(
-             <div key={skill.id}>
+             <div key={skill._id}>
                  <ul>
                      <label>Name</label>
                     <li>{skill.name}</li>
@@ -34,12 +35,13 @@ class Skill extends React.Component {
                     <li>{skill.rank}</li>
                  </ul>
              </div>
-            )
-           })
+            );
+           });
         return (
             <div className="background">
                 <h1>Skills</h1>
                 {skills}
+                <CreateSkill />
             </div>
         )
     }

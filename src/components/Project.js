@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
+import CreateProject from './Post/createProject'
 
 class Project extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Project extends React.Component {
         this.state = {
             projects: []
         }
-    }
+    };
 
     componentDidMount() {
         let url = buildUrl("projects")
@@ -20,13 +21,13 @@ class Project extends React.Component {
                             projects: data
                         })
                 })
-            })
+            });
     };
 
     render() {
         let projects = this.state.projects.map(project => {
             return(
-             <div key={project.id}>
+             <div key={project._id}>
                  <ul>
                      <label>Title</label>
                     <li>{project.title}</li>
@@ -36,12 +37,13 @@ class Project extends React.Component {
                     <li>{project.screenshot}</li>
                  </ul>
              </div>
-            )
-           })
+            );
+           });
         return (
             <div className="background">
                 <h1>Project</h1>
                 {projects}
+                <CreateProject />
             </div>
         )
     }
