@@ -1,18 +1,24 @@
 import React from 'react'
 import './style.css'
+import {Button} from 'reactstrap'
 import {buildUrl} from '../connection/url'
 import CreateWork from './Post/createWork'
 import UpdateWork from './Put/updateWork'
+import DisplayWork from './Display/displayWork'
 
 class WorkExperience extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            works: []
+            works: [],
+            displayMode: true,
+            editMode: false,
+            editWork: null,
+            createMode: false
         }
     };
     
-    componentDidMount() {
+    getData() {
         let url = buildUrl("work/");
         fetch(url)
             .then(res => { 
@@ -26,32 +32,48 @@ class WorkExperience extends React.Component {
                     })
                 }
             );
+    }; 
+
+    componentDidMount() {
+        this.getData()
     };
 
     render() {
+        let editWorkClick = (work) => {
+            this.setState({editWork: work, editMode: true, displayMode: false})
+        };
+
+        let createWorkClick = () => {
+            this.setState({createMode: true, displayMode: false, editMode: false})
+        }
+
+        let returnClickHandler = () => {
+            this.setState({createMode: false, editMode: false, displayMode: true})
+        }
+
+        let newWorkHandler = (work) => {
+            this.setState({works: [...this.state.works, work]})
+        }
+
+        let worksDisplay = this.state.works.map(work =>
+            <DisplayWork work={work} key={work._id} editWorkClick={editWorkClick} />
+        );
+
+        let edit = <UpdateWork editWork={this.state.editWork} returnClickHandler={returnClickHandler} />
+
+        let create = <CreateWork  getData={this.getData} returnClickHandler={returnClickHandler} newWorkHandler={newWorkHandler} />
+
         return (
             <div className="background">
                 <h1>Work Experiences</h1>
-                {this.state.works.map(work =>          
-                            <ul key={work._id}>
-                               <label>Company</label>
-                               <li>{work.company}</li>
-                               <label>Job Title</label>
-                               <li>{work.title}</li>
-                               <label>Job Description</label>
-                               <li>{work.description}</li>
-                               <label>Start Date</label>
-                               <li>{work.start_date}</li>
-                               <label>End Date</label>
-                               <li>{work.end_date}</li>
-                            </ul>
-                      )
-                }
-                {/* <nav style={{paddingLeft: 25}}>
-                <Link to="/createWork" color="link" size="sm">Create New</Link>
-                </nav> */}
-                    <CreateWork />
-                    <UpdateWork />
+                <div style={{paddingLeft: 30}}>
+                    <Button color="link" size="sm" onClick={createWorkClick}>Create New</Button>
+                    <br />
+                </div>
+                {this.state.displayMode? worksDisplay : null}
+                {this.state.editMode? edit : null}
+                {this.state.createMode? create : null}
+
             </div>
         )
     }

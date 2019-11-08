@@ -1,13 +1,19 @@
 import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
+import {Button} from 'reactstrap'
 import CreateSkill from './Post/createSkill'
+import DisplaySkill from './Display/displaySkill'
 
 class Skill extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            skills: []
+            skills: [],
+            displayMode: true,
+            createMode: false,
+            editMode: false,
+            editSkill: null
         }
     };
 
@@ -25,23 +31,31 @@ class Skill extends React.Component {
     };
 
     render() {
-        let skills = this.state.skills.map(skill => {
-            return(
-             <div key={skill._id}>
-                 <ul>
-                     <label>Name</label>
-                    <li>{skill.name}</li>
-                    <label>Rank</label>
-                    <li>{skill.rank}</li>
-                 </ul>
-             </div>
+        // let editEducationClick = (work) => {
+        //     this.setState({editWork: work, editMode: true, displayMode: false})
+        // };
+
+        let createSkillClick = () => {
+            this.setState({createMode: true, displayMode: false, editMode: false})
+        }
+
+        let skillsDisplay = this.state.skills.map(skill => 
+            <DisplaySkill skill={skill} key={skill._id} />
             );
-           });
+
+        // let edit = <UpdateSkill editSkill={this.state.editSkill} />
+
+        let create = <CreateSkill />
         return (
             <div className="background">
                 <h1>Skills</h1>
-                {skills}
-                <CreateSkill />
+                <div style={{paddingLeft: 30}}>
+                    <Button color="link" size="sm" onClick={createSkillClick}>Create New</Button>
+                    <br />
+                </div>
+                {this.state.displayMode? skillsDisplay : null}
+                {/* {this.state.editMode? edit : null} */}
+                {this.state.createMode? create : null} 
             </div>
         )
     }

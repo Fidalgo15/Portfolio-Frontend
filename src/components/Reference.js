@@ -2,12 +2,14 @@ import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
 import CreateReference from './Post/createReference'
+import DisplayReference from './Display/displayReference'
 
 class Reference extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            references: []
+            references: [],
+            // editMode: false
         }
     };
 
@@ -25,20 +27,9 @@ class Reference extends React.Component {
     };
 
     render() {
-        let references = this.state.references.map(reference => {
-            return(
-             <div key={reference._id}>
-                 <ul>
-                     <label>Name</label>
-                    <li>{reference.name}</li>
-                    <label>Contact</label>
-                    <li>{reference.phone_number}</li>
-                    <label>Relation</label>
-                    <li>{reference.relation}</li>
-                 </ul>
-             </div>
-            );
-           });
+        let references = this.state.references.map(reference => 
+            <DisplayReference reference={reference} key={reference._id} />
+           );
         return (
             <div className="background">
                 <h1>References</h1>

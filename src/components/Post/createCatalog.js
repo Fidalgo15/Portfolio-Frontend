@@ -62,13 +62,13 @@ onChangeTag(e) {
                         <Input type="text" placeholder="Name" value={this.state.name} onChange={this.onChangeName} />
                     </Col>
                     <Col sm={4}>
-                        <Input type="text" placeholder="Description" value={this.state.description} onChange={this.onChangeDescription} />
+                        <Input type="textarea" placeholder="Description" value={this.state.description} onChange={this.onChangeDescription} />
                     </Col>
                     <Col sm={4}>
                         <Input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onChangeTag} />
                     </Col>
                     <Col>
-                        <Button onClick={this.handleSubmit} type="submit" color="primary">Submit</Button>
+                        <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
                 </form>
             </div>

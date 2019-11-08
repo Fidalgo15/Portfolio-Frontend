@@ -68,7 +68,7 @@ onChangeRelation(e) {
                         <Input type="text" placeholder="Relation" value={this.state.relation} onChange={this.onChangeRelation} />
                     </Col>
                     <Col>
-                        <Button onClick={this.handleSubmit} type="submit" color="primary">Submit</Button>
+                        <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
                 </form>
             </div>

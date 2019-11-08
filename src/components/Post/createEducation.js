@@ -57,7 +57,7 @@ onChangeYear(e) {
                         <Input type="text" placeholder="Year Graduated" value={this.state.year_graduated} onChange={this.onChangeYear} />
                     </Col>
                     <Col>
-                        <Button onClick={this.handleSubmit} type="submit" color="primary">Submit</Button>
+                        <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
                 </form>
             </div>

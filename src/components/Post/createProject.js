@@ -68,7 +68,7 @@ onChangeScreenshot(e) {
                         <Input type="text" placeholder="Screenshot" value={this.state.screenshot} onChange={this.onChangeScreenshot} />
                     </Col>
                     <Col>
-                        <Button onClick={this.handleSubmit} type="submit" color="primary">Submit</Button>
+                        <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
                 </form>
             </div>

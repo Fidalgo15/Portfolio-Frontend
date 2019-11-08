@@ -57,7 +57,7 @@ onChangeRank(e) {
                         <Input type="text" placeholder="Rank" value={this.state.rank} onChange={this.onChangeRank} />
                     </Col>
                     <Col>
-                        <Button onClick={this.handleSubmit} type="submit" color="primary">Submit</Button>
+                        <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
                 </form>
             </div>

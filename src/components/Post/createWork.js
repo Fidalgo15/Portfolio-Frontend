@@ -56,14 +56,16 @@ onChangeStart(e) {
             body: JSON.stringify(this.state),
             headers:{ 'Content-Type': 'application/json' } 
         })
-        .then(res => { 
+        .then(res => res.json())
+        .then(work => { 
             this.setState({
             company: "",
             title: "",
             description: "",
             start_date: "",
             end_date: ""
-        })
+        });
+        this.props.newWorkHandler(work)
         })
         .catch(err => {
             console.log('error', err)
@@ -81,7 +83,7 @@ onChangeStart(e) {
                         <Input type="text" placeholder="Job Title" value={this.state.title} onChange={this.onChangeTitle} />
                     </Col>
                     <Col sm={4}>
-                        <Input type="text" placeholder="Description" value={this.state.description} onChange={this.onChangeDescription} />
+                        <Input type="textarea" placeholder="Description" value={this.state.description} onChange={this.onChangeDescription} />
                     </Col>
                     <Col sm={4}>
                         <Input type="text" placeholder="Start Date" value={this.state.start_date} onChange={this.onChangeStart} />
@@ -90,7 +92,10 @@ onChangeStart(e) {
                         <Input type="text" placeholder="End Date" value={this.state.end_date} onChange={this.onChangeEnd} />
                     </Col>
                     <Col>
-                        <Button onClick={this.handleSubmit} type="submit" color="primary">Submit</Button>
+                        <Button onClick={this.handleSubmit} color="primary">Submit</Button>
+                    </Col>
+                    <Col>
+                        <Button onClick={ () => this.props.returnClickHandler()} color="link">Back to Home</Button>
                     </Col>
                 </form>
             </div>

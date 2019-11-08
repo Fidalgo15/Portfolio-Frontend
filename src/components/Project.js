@@ -2,12 +2,15 @@ import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
 import CreateProject from './Post/createProject'
+import DisplayProject from './Display/displayProject'
+// import PubSub from 'pubsub-js'
 
 class Project extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            projects: []
+            projects: [],
+            editProject: null
         }
     };
 
@@ -24,21 +27,15 @@ class Project extends React.Component {
             });
     };
 
+    // clickHandler(event){
+    //     console.log(this.state.project)
+    //     PubSub.publish(PROJECT_TO_BE_EDITED_CHANNEL, this.state.project)
+    // }
+
     render() {
-        let projects = this.state.projects.map(project => {
-            return(
-             <div key={project._id}>
-                 <ul>
-                     <label>Title</label>
-                    <li>{project.title}</li>
-                    <label>Contact</label>
-                    <li>{project.link}</li>
-                    <label>Screenshot</label>
-                    <li>{project.screenshot}</li>
-                 </ul>
-             </div>
-            );
-           });
+        let projects = this.state.projects.map(project => 
+            <DisplayProject project={project} key={project._id} />
+           );
         return (
             <div className="background">
                 <h1>Project</h1>

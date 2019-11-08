@@ -2,12 +2,14 @@ import React from 'react'
 import './style.css'
 import {buildUrl} from '../connection/url'
 import CreateCatalog from './Post/createCatalog'
+import DisplayCatalog from './Display/displayCatalog'
 
 class KnowledgeCatalog extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            catalogs: []
+            catalogs: [],
+            vakue: ""
         }
     };
 
@@ -25,20 +27,9 @@ class KnowledgeCatalog extends React.Component {
     };
 
     render() {
-        let catalogs = this.state.catalogs.map(catalog => {
-            return(
-             <div key={catalog._id}>
-                 <ul>
-                     <label>Name</label>
-                    <li>{catalog.name}</li>
-                    <label>Description</label>
-                    <li>{catalog.description}</li>
-                    <label>Tag</label>
-                    <li>{catalog.tag}</li>
-                 </ul>
-             </div>
-            );
-           });
+        let catalogs = this.state.catalogs.map(catalog => 
+            <DisplayCatalog catalog={catalog} key={catalog._id}/>
+           );
         return (
             <div className="background">
                 <h1>KnowledgeCatalog</h1>

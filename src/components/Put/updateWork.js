@@ -1,15 +1,28 @@
 import React from 'react'
 import '../style.css'
 import {buildUrl} from '../../connection/url'
+import {Button, Input, Col} from 'reactstrap'
+// import Work from '../WorkExperience'
 
 
-class createWork extends React.Component {
+class updateWork extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            works: []
+            work: props.editWork,
         }
+        this.onChangeWork = this.onChangeWork.bind(this);
     };
+
+    static getDerivedStateFromProps(props, state) {
+        return {work: props.editWork}
+    }
+
+    onChangeWork(e) {
+        this.setState({
+          work: e.target.value
+        });
+      }
 
     componentDidMount() {
         let url = buildUrl("work/_id"); 
@@ -27,7 +40,7 @@ class createWork extends React.Component {
         .then(res => res.json())
         .then(data => {
             this.setState({
-                works: data
+                work: data
         })
         })
         .catch(err => {
@@ -36,13 +49,43 @@ class createWork extends React.Component {
         }); 
     };
 
+    
+
     render() {
+
         return(
             <div>
+                <Col sm={4}>
+                    <label>Company</label>
+                    <Input type="text" defaultValue={this.state.work.company} onChange={this.onChangeWork} />
+                </Col>
+                <Col sm={4}>
+                    <label>Title</label>
+                    <Input type="text" defaultValue={this.state.work.title} onChange={this.onChangeWork} />
+                </Col>
+                <Col sm={4}>
+                    <label>Description</label>
+                    <Input type="text" defaultValue={this.state.work.description} onChange={this.onChangeWork} />
+                </Col>
+                <Col sm={4}>
+                    <label>Start Date</label>
+                    <Input type="text" defaultValue={this.state.work.start_date} onChange={this.onChangeWork} />
+                </Col>
+                <Col sm={4}>
+                    <label>End Date</label>
+                    <Input type="text" defaultValue={this.state.work.end_date} onChange={this.onChangeWork} />
+                </Col>
+                <br />
+                <Col>
+                    <Button color="primary" size="sm" onClick={ () => this.componentDidMount()}>Save</Button>
+                </Col>
+                <Col>
+                    <Button color="link" size="sm" onClick={ () => this.props.returnClickHandler()}>Back to Home</Button>
+                </Col>
             </div>
         )
     }
 
 }
 
-export default createWork
+export default updateWork
