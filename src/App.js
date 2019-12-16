@@ -8,7 +8,6 @@ import WorkExperience from './components/WorkExperience';
 import Education from './components/Education';
 import Project from './components/Project';
 import Reference from './components/Reference';
-import KnowledgeCatalog from './components/KnowledgeCatalog';
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
           <Education path="/education" />
           <Project path="/projects" />
           <Reference path="/references" />
-          <KnowledgeCatalog path="/catalog" />
         </Router>
     </div>
   );
