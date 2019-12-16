@@ -9,12 +9,10 @@ class createProject extends React.Component {
         this.state = {
             title: "",
             link: "",
-            screenshot: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeLink = this.onChangeLink.bind(this);
-        this.onChangeScreenshot = this.onChangeScreenshot.bind(this);
     };
 
 
@@ -28,11 +26,6 @@ onChangeLink(e) {
     link: e.target.value
   });  
 }
-onChangeScreenshot(e) {
-  this.setState({
-    screenshot: e.target.value
-  });
-}
 
     handleSubmit(event) {
         event.preventDefault();
@@ -45,8 +38,7 @@ onChangeScreenshot(e) {
         .then(res => { 
             this.setState({
             title: "",
-            link: "",
-            screenshot: ""
+            link: ""
         })
         })
         .catch(err => {
@@ -57,16 +49,15 @@ onChangeScreenshot(e) {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form style={{paddingLeft: 23}} onSubmit={this.handleSubmit}>
                     <Col sm={4}>
                         <Input type="text" placeholder="Title" value={this.state.title} onChange={this.onChangeTitle} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Github Link" value={this.state.link} onChange={this.onChangeLink} />
                     </Col>
-                    <Col sm={4}>
-                        <Input type="text" placeholder="Screenshot" value={this.state.screenshot} onChange={this.onChangeScreenshot} />
-                    </Col>
+                    <br />
                     <Col>
                         <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>

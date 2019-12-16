@@ -1,14 +1,14 @@
-import React from 'react'
-import {Button} from 'reactstrap'
-import PubSub from 'pubsub-js'
-import {REFERENCE_TO_BE_EDITED_CHANNEL} from '../PubSubConnections'
+import React from 'react';
+import {Button} from 'reactstrap';
+import PubSub from 'pubsub-js';
+import {REFERENCE_TO_BE_EDITED_CHANNEL} from '../PubSubConnections';
 
 function displayReference(props) {
 
-    let clickHandler = (event) => {
+    let clickHandler = () => {
         console.log(props.reference)
         PubSub.publish(REFERENCE_TO_BE_EDITED_CHANNEL, props.reference)
-    }
+    };
 
     return(      
         <ul>

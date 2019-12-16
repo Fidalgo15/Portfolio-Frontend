@@ -35,11 +35,13 @@ onChangeRank(e) {
             body: JSON.stringify(this.state),
             headers:{ 'Content-Type': 'application/json' } 
         })
-        .then(res => { 
+        .then(res => res.json())
+        .then(skill => { 
             this.setState({
             name: "",
             rank: ""
-        })
+        });
+        this.props.newSkillHandler(skill)
         })
         .catch(err => {
             console.log('error', err)
@@ -49,17 +51,24 @@ onChangeRank(e) {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form style={{paddingLeft: 23}} onSubmit={this.handleSubmit}>
                     <Col sm={4}>
                         <Input type="text" placeholder="Name" value={this.state.name} onChange={this.onChangeName} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Rank" value={this.state.rank} onChange={this.onChangeRank} />
                     </Col>
+                    <br />
                     <Col>
                         <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
-                </form>
+                    </form>
+                    <div style={{paddingLeft: 11}}>
+                    <Col>
+                        <Button onClick={ () => this.props.returnClickHandler()} color="link">Back to Home</Button>
+                    </Col>
+                    </div>
             </div>
         )
     }

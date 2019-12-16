@@ -1,9 +1,10 @@
-import React from 'react'
-import './style.css'
-import {buildUrl} from '../connection/url'
-import {Button} from 'reactstrap'
-import CreateSkill from './Post/createSkill'
-import DisplaySkill from './Display/displaySkill'
+import React from 'react';
+import './style.css';
+import {buildUrl} from '../connection/url';
+import {Button} from 'reactstrap';
+import CreateSkill from './Post/createSkill';
+import DisplaySkill from './Display/displaySkill';
+import UpdateSkill from './Put/updatSkill';
 
 class Skill extends React.Component {
     constructor(props) {
@@ -31,21 +32,29 @@ class Skill extends React.Component {
     };
 
     render() {
-        // let editEducationClick = (work) => {
-        //     this.setState({editWork: work, editMode: true, displayMode: false})
-        // };
+        let editSkillClick = (skill) => {
+            this.setState({editSkill: skill, editMode: true, displayMode: false})
+        };
 
         let createSkillClick = () => {
             this.setState({createMode: true, displayMode: false, editMode: false})
-        }
+        };
+
+        let returnClickHandler = () => {
+            this.setState({createMode: false, editMode: false, displayMode: true})
+        };
+
+        let newSkillHandler = (skill) => {
+            this.setState({skills: [...this.state.skills, skill]})
+        };
 
         let skillsDisplay = this.state.skills.map(skill => 
-            <DisplaySkill skill={skill} key={skill._id} />
+            <DisplaySkill skill={skill} key={skill._id} editSkillClick={editSkillClick} />
             );
 
-        // let edit = <UpdateSkill editSkill={this.state.editSkill} />
+        let edit = <UpdateSkill editSkill={this.state.editSkill} returnClickHandler={returnClickHandler} />
 
-        let create = <CreateSkill />
+        let create = <CreateSkill returnClickHandler={returnClickHandler} newSkillHandler={newSkillHandler} />
         return (
             <div className="background">
                 <h1>Skills</h1>
@@ -54,7 +63,7 @@ class Skill extends React.Component {
                     <br />
                 </div>
                 {this.state.displayMode? skillsDisplay : null}
-                {/* {this.state.editMode? edit : null} */}
+                {this.state.editMode? edit : null}
                 {this.state.createMode? create : null} 
             </div>
         )

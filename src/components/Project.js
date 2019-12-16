@@ -1,9 +1,9 @@
-import React from 'react'
-import './style.css'
-import {buildUrl} from '../connection/url'
-import CreateProject from './Post/createProject'
-import DisplayProject from './Display/displayProject'
-// import PubSub from 'pubsub-js'
+import React from 'react';
+import './style.css';
+import {buildUrl} from '../connection/url';
+import CreateProject from './Post/createProject';
+import DisplayProject from './Display/displayProject';
+// import PubSub from 'pubsub-js';
 
 class Project extends React.Component {
     constructor(props) {

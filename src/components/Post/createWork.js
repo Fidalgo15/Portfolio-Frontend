@@ -75,29 +75,36 @@ onChangeStart(e) {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form style={{paddingLeft: 23}} onSubmit={this.handleSubmit}>
                     <Col sm={4}>
                         <Input type="text" placeholder="Company" value={this.state.company} onChange={this.onChangeCompany} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Job Title" value={this.state.title} onChange={this.onChangeTitle} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="textarea" placeholder="Description" value={this.state.description} onChange={this.onChangeDescription} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Start Date" value={this.state.start_date} onChange={this.onChangeStart} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="End Date" value={this.state.end_date} onChange={this.onChangeEnd} />
                     </Col>
+                    <br />
                     <Col>
                         <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
+                  </form>
+                  <div style={{paddingLeft: 11}}>
                     <Col>
                         <Button onClick={ () => this.props.returnClickHandler()} color="link">Back to Home</Button>
                     </Col>
-                </form>
+                  </div>
             </div>
         )
     }

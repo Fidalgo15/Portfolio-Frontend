@@ -57,16 +57,19 @@ onChangeRelation(e) {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form style={{paddingLeft: 23}} onSubmit={this.handleSubmit}>
                     <Col sm={4}>
                         <Input type="text" placeholder="Name" value={this.state.name} onChange={this.onChangeName} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Phone Number" value={this.state.phone_number} onChange={this.onChangePhone} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Relation" value={this.state.relation} onChange={this.onChangeRelation} />
                     </Col>
+                    <br />
                     <Col>
                         <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>

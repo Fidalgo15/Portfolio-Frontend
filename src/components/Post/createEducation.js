@@ -35,11 +35,13 @@ onChangeYear(e) {
             body: JSON.stringify(this.state),
             headers:{ 'Content-Type': 'application/json' } 
         })
-        .then(res => { 
+        .then(res => res.json())
+        .then(education => { 
             this.setState({
             school: "",
             year_graduated: ""
-        })
+        });
+        this.props.newEducationHandler(education)
         })
         .catch(err => {
             console.log('error', err)
@@ -49,17 +51,24 @@ onChangeYear(e) {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form style={{paddingLeft: 23}} onSubmit={this.handleSubmit}>
                     <Col sm={4}>
                         <Input type="text" placeholder="School" value={this.state.school} onChange={this.onChangeSchool} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Year Graduated" value={this.state.year_graduated} onChange={this.onChangeYear} />
                     </Col>
+                    <br />
                     <Col>
                         <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>
                 </form>
+                <div style={{paddingLeft: 12}}>
+                    <Col>
+                        <Button color="link" size="sm" onClick={ () => this.props.returnClickHandler()}>Back to Home</Button>
+                    </Col>
+                </div>
             </div>
         )
     }

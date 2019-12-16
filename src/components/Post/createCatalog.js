@@ -57,16 +57,19 @@ onChangeTag(e) {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form style={{paddingLeft: 23}} onSubmit={this.handleSubmit}>
                     <Col sm={4}>
                         <Input type="text" placeholder="Name" value={this.state.name} onChange={this.onChangeName} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="textarea" placeholder="Description" value={this.state.description} onChange={this.onChangeDescription} />
                     </Col>
+                    <br />
                     <Col sm={4}>
                         <Input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onChangeTag} />
                     </Col>
+                    <br />
                     <Col>
                         <Button onClick={this.handleSubmit} color="primary">Submit</Button>
                     </Col>

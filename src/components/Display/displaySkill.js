@@ -12,7 +12,7 @@ function displaySkill(props) {
                 <label>Rank:</label>
                 <span> {props.skill.rank}</span>
                 <br />
-                <Button outline color="primary" size="sm" onClick={props.edit}>Edit</Button>
+                <Button outline color="primary" size="sm" onClick={ () => props.editSkillClick(props.skill)}>Edit</Button>
                 <Button color="danger" size="sm" >delete</Button>
             </li>
         </ul>

@@ -21,7 +21,7 @@ function displayWork(props) {
                 <label>End Date:</label>
                 <span> {props.work.end_date}</span>
                 <br />
-                <Button outline color="primary" size="sm" onClick={ (event) => props.editWorkClick(props.work)}>Edit</Button>
+                <Button outline color="primary" size="sm" onClick={ () => props.editWorkClick(props.work)}>Edit</Button>
                 <Button color="danger" size="sm" >Delete</Button>
             </li>
         </ul>

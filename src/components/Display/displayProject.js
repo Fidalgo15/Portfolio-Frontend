@@ -12,9 +12,6 @@ function displayProject(props) {
                 <label>Link:</label>
                 <span> {props.project.link}</span>
                 <br />
-                <label>Screenshot:</label>
-                <span> {props.project.screenshot}</span>
-                <br />
                 <Button outline color="primary" size="sm" onClick={props.edit}>Edit</Button>
                 <Button color="danger" size="sm" >Delete</Button>
             </li>

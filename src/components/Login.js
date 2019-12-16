@@ -1,6 +1,6 @@
-import React from 'react'
-import './style.css'
-// import { Input, Col } from 'reactstrap'
+import React from 'react';
+import './style.css';
+// import { Input, Col } from 'reactstrap';
 
 export default class extends React.Component {
     constructor(props) {

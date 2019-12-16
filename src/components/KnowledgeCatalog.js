@@ -1,8 +1,8 @@
-import React from 'react'
-import './style.css'
-import {buildUrl} from '../connection/url'
-import CreateCatalog from './Post/createCatalog'
-import DisplayCatalog from './Display/displayCatalog'
+import React from 'react';
+import './style.css';
+import {buildUrl} from '../connection/url';
+import CreateCatalog from './Post/createCatalog';
+import DisplayCatalog from './Display/displayCatalog';
 
 class KnowledgeCatalog extends React.Component {
     constructor(props) {

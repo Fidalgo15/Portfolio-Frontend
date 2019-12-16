@@ -1,10 +1,10 @@
-import React from 'react'
-import './style.css'
-import {Button} from 'reactstrap'
-import {buildUrl} from '../connection/url'
-import CreateWork from './Post/createWork'
-import UpdateWork from './Put/updateWork'
-import DisplayWork from './Display/displayWork'
+import React from 'react';
+import './style.css';
+import {Button} from 'reactstrap';
+import {buildUrl} from '../connection/url';
+import CreateWork from './Post/createWork';
+import UpdateWork from './Put/updateWork';
+import DisplayWork from './Display/displayWork';
 
 class WorkExperience extends React.Component {
     constructor(props) {
@@ -45,15 +45,15 @@ class WorkExperience extends React.Component {
 
         let createWorkClick = () => {
             this.setState({createMode: true, displayMode: false, editMode: false})
-        }
+        };
 
         let returnClickHandler = () => {
             this.setState({createMode: false, editMode: false, displayMode: true})
-        }
+        };
 
         let newWorkHandler = (work) => {
             this.setState({works: [...this.state.works, work]})
-        }
+        };
 
         let worksDisplay = this.state.works.map(work =>
             <DisplayWork work={work} key={work._id} editWorkClick={editWorkClick} />

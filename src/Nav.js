@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
 export default class extends React.Component {

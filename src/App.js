@@ -1,14 +1,14 @@
 import React from 'react';
 import './components/style.css';
-import Login from './components/Login'
-import Nav from './Nav'
-import { Router } from '@reach/router'
-import Skill from './components/Skill'
-import WorkExperience from './components/WorkExperience'
-import Education from './components/Education'
-import Project from './components/Project'
-import Reference from './components/Reference'
-import KnowledgeCatalog from './components/KnowledgeCatalog'
+import Login from './components/Login';
+import Nav from './Nav';
+import { Router } from '@reach/router';
+import Skill from './components/Skill';
+import WorkExperience from './components/WorkExperience';
+import Education from './components/Education';
+import Project from './components/Project';
+import Reference from './components/Reference';
+import KnowledgeCatalog from './components/KnowledgeCatalog';
 
 function App() {
   return (

@@ -12,7 +12,7 @@ function displayEducation(props) {
                 <label>Year Graduated:</label>
                 <span> {props.education.year_graduated}</span>
                 <br />
-                <Button outline color="primary" size="sm" onClick={props.editClick}>Edit</Button>
+                <Button outline color="primary" size="sm" onClick={ () => props.editEducationClick(props.education)}>Edit</Button>
                 <Button color="danger" size="sm" >Delete</Button>
             </li>
         </ul>
